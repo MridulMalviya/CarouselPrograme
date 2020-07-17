@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CarouselPagePrograme.Views.CarouselViewPage" CloseWhenBackgroundIsClicked="True" 
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" HeightRequest="400" WidthRequest="400" 
+             xmlns:viewmodels="clr-namespace:CarouselPagePrograme.ViewModels">
+    <ContentPage.BindingContext>
+        <viewmodels:CarouselViewModel/>
+    </ContentPage.BindingContext>
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="personTemplate">
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Text="{Binding Age}" />
+                        <Label Grid.Column="2" Text="{Binding Location}" HorizontalTextAlignment="End" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+
+    <ContentPage.Content>
+        <StackLayout HeightRequest="200" WidthRequest="400" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="LightBlue">
+            <CarouselView HorizontalOptions="FillAndExpand" 
+                      VerticalOptions="FillAndExpand" 
+                      ItemsSource="{Binding StudentList}"
+                      x:Name="carousel"
+                      IndicatorView="indicatorView">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*" />
+                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="0.3*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" FontAttributes="Bold"  FontSize="11" TextColor="Black"/>
+                                <Label Grid.Column="1" Text="{Binding Age}" />
+                                <Label Grid.Column="2" Text="{Binding Location}" HorizontalTextAlignment="End" />
+                            </Grid>
+                        </ContentView>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="DarkGray"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</popup:PopupPage>

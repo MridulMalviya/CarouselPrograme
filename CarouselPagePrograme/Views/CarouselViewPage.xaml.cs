@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using CarouselPagePrograme.ViewModels;
 using Rg.Plugins.Popup.Pages;
-using Xamarin.Forms;
 
 namespace CarouselPagePrograme.Views
 {
@@ -17,7 +14,7 @@ namespace CarouselPagePrograme.Views
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
            
         }
